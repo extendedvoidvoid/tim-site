@@ -393,7 +393,7 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
       });
     });
 
-    // Interactive Hover Canvas Effect (Spotlight & Crosshair on Mouse Over)
+    // Interactive Hover Canvas Effect (Bokeh Light Effect on Mouse Over)
     document.querySelectorAll('.artwork-container').forEach((container) => {
       const canvas = container.querySelector('.hover-canvas') as HTMLCanvasElement;
       if (!canvas) return;
@@ -405,37 +405,107 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
       canvas.width = rect.width;
       canvas.height = rect.height;
 
-      container.addEventListener('mousemove', (e) => {
-        const mouseEvent = e as MouseEvent;
-        rect = container.getBoundingClientRect();
-        const x = mouseEvent.clientX - rect.left;
-        const y = mouseEvent.clientY - rect.top;
+      interface BokehParticle {
+        x: number;
+        y: number;
+        radius: number;
+        alpha: number;
+        vx: number;
+        vy: number;
+        color: string;
+      }
+
+      let particles: BokehParticle[] = [];
+      let isHovered = false;
+      let animId: number | null = null;
+
+      function createParticles(x: number, y: number) {
+        particles = [];
+        const colors = [
+          'rgba(16, 185, 129,',   // Emerald
+          'rgba(52, 211, 153,',   // Light Emerald
+          'rgba(245, 158, 11,',   // Warm Amber Bokeh
+          'rgba(255, 255, 255,'   // Soft White
+        ];
+
+        for (let i = 0; i < 18; i++) {
+          particles.push({
+            x: x + (Math.random() - 0.5) * 140,
+            y: y + (Math.random() - 0.5) * 140,
+            radius: Math.random() * 28 + 12,
+            alpha: Math.random() * 0.35 + 0.15,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8 - 0.2,
+            color: colors[Math.floor(Math.random() * colors.length)]
+          });
+        }
+      }
+
+      function animate() {
+        if (!isHovered && particles.length === 0) {
+          ctx?.clearRect(0, 0, canvas.width, canvas.height);
+          return;
+        }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.globalCompositeOperation = 'screen';
 
-        // Draw interactive radial spotlight
-        const gradient = ctx.createRadialGradient(x, y, 10, x, y, 120);
-        gradient.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
-        gradient.addColorStop(0.5, 'rgba(16, 185, 129, 0.1)');
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        particles.forEach((p, idx) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.alpha -= 0.003;
 
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+          if (p.alpha <= 0) {
+            particles.splice(idx, 1);
+            return;
+          }
 
-        // Draw crosshair indicator
-        ctx.strokeStyle = 'rgba(16, 185, 129, 0.6)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(x - 15, y);
-        ctx.lineTo(x + 15, y);
-        ctx.moveTo(x, y - 15);
-        ctx.lineTo(x, y + 15);
-        ctx.stroke();
+          const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
+          grad.addColorStop(0, `${p.color} ${p.alpha})`);
+          grad.addColorStop(0.6, `${p.color} ${p.alpha * 0.4})`);
+          grad.addColorStop(1, `${p.color} 0)`);
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        if (isHovered || particles.length > 0) {
+          animId = requestAnimationFrame(animate);
+        }
+      }
+
+      container.addEventListener('mouseenter', (e) => {
+        isHovered = true;
+        rect = container.getBoundingClientRect();
+        const mouseEvent = e as MouseEvent;
+        createParticles(mouseEvent.clientX - rect.left, mouseEvent.clientY - rect.top);
+        if (!animId) animate();
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        rect = container.getBoundingClientRect();
+        const mouseEvent = e as MouseEvent;
+        const x = mouseEvent.clientX - rect.left;
+        const y = mouseEvent.clientY - rect.top;
+
+        if (particles.length < 15 && Math.random() > 0.4) {
+          const colors = ['rgba(16, 185, 129,', 'rgba(52, 211, 153,', 'rgba(245, 158, 11,'];
+          particles.push({
+            x: x + (Math.random() - 0.5) * 80,
+            y: y + (Math.random() - 0.5) * 80,
+            radius: Math.random() * 24 + 10,
+            alpha: Math.random() * 0.3 + 0.15,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6 - 0.3,
+            color: colors[Math.floor(Math.random() * colors.length)]
+          });
+        }
       });
 
       container.addEventListener('mouseleave', () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        isHovered = false;
       });
     });
 
@@ -443,6 +513,11 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     const modal = document.getElementById('lightbox-modal');
     const modalImg = document.getElementById('lightbox-img') as HTMLImageElement;
     const closeBtn = document.getElementById('lightbox-close');
+
+    function closeModal() {
+      modal?.classList.add('hidden');
+      modal?.classList.remove('flex');
+    }
 
     document.querySelectorAll('.artwork-container').forEach((card) => {
       card.addEventListener('click', () => {
@@ -455,15 +530,17 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
       });
     });
 
-    closeBtn?.addEventListener('click', () => {
-      modal?.classList.add('hidden');
-      modal?.classList.remove('flex');
+    // Click on enlarged image closes the modal automatically
+    modalImg?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
     });
+
+    closeBtn?.addEventListener('click', closeModal);
 
     modal?.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        closeModal();
       }
     });
   </script>
