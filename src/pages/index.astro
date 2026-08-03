@@ -78,15 +78,16 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="lg:col-span-5">
-          <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl group">
+          <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl group artwork-container cursor-pointer" data-src={base + "images/img_01_page_02.jpg"}>
             <img src={base + "images/img_01_page_02.jpg"} alt="Théophile Dereux Studio" class="w-full h-[520px] object-cover filter-artwork transition-all duration-300 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-6 left-6 right-6 font-mono text-xs text-neutral-400 flex justify-between items-end">
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-0"></div>
+            <div class="absolute bottom-6 left-6 right-6 font-mono text-xs text-neutral-400 flex justify-between items-end z-20">
               <div>
                 <span class="text-white font-bold block text-sm">Portrait & Studio</span>
                 <span>Streetartera (2020 - 2025)</span>
               </div>
-              <span class="text-emerald-400">REF_01</span>
+              <span class="text-emerald-400 font-mono">REF_01 [CLICK TO ENLARGE]</span>
             </div>
           </div>
         </div>
@@ -112,9 +113,10 @@ const base = import.meta.env.BASE_URL;
 
       <!-- Real Artwork Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
-          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all artwork-container cursor-pointer" data-src={base + "images/img_04_page_05.jpg"}>
+          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3] relative">
             <img src={base + "images/img_04_page_05.jpg"} alt="Peinture Abstraite ABSPRAY" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="flex justify-between items-center font-mono text-xs pt-1">
             <span class="text-white font-bold text-sm">Série ABSPRAY</span>
@@ -122,9 +124,10 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
-          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all artwork-container cursor-pointer" data-src={base + "images/img_06_page_07.jpg"}>
+          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3] relative">
             <img src={base + "images/img_06_page_07.jpg"} alt="Peinture Médiumnité" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="flex justify-between items-center font-mono text-xs pt-1">
             <span class="text-white font-bold text-sm">Série Médiumnité</span>
@@ -132,9 +135,10 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
-          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all artwork-container cursor-pointer" data-src={base + "images/img_08_page_09.jpg"}>
+          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3] relative">
             <img src={base + "images/img_08_page_09.jpg"} alt="Peinture Exploration" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="flex justify-between items-center font-mono text-xs pt-1">
             <span class="text-white font-bold text-sm">Série Exploration</span>
@@ -163,17 +167,29 @@ const base = import.meta.env.BASE_URL;
 
       <!-- Real Photo Gallery -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src={base + "images/img_17_page_17.jpg"} alt="Texture décontextualisée 1" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2 artwork-container cursor-pointer" data-src={base + "images/img_17_page_17.jpg"}>
+          <div class="relative w-full h-full rounded-lg overflow-hidden">
+            <img src={base + "images/img_17_page_17.jpg"} alt="Texture décontextualisée 1" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
+          </div>
         </div>
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src={base + "images/img_20_page_20.jpg"} alt="Texture décontextualisée 2" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2 artwork-container cursor-pointer" data-src={base + "images/img_20_page_20.jpg"}>
+          <div class="relative w-full h-full rounded-lg overflow-hidden">
+            <img src={base + "images/img_20_page_20.jpg"} alt="Texture décontextualisée 2" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
+          </div>
         </div>
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src={base + "images/img_25_page_25.jpg"} alt="Texture décontextualisée 3" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2 artwork-container cursor-pointer" data-src={base + "images/img_25_page_25.jpg"}>
+          <div class="relative w-full h-full rounded-lg overflow-hidden">
+            <img src={base + "images/img_25_page_25.jpg"} alt="Texture décontextualisée 3" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
+          </div>
         </div>
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src={base + "images/img_30_page_30.jpg"} alt="Texture décontextualisée 4" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2 artwork-container cursor-pointer" data-src={base + "images/img_30_page_30.jpg"}>
+          <div class="relative w-full h-full rounded-lg overflow-hidden">
+            <img src={base + "images/img_30_page_30.jpg"} alt="Texture décontextualisée 4" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
+          </div>
         </div>
       </div>
     </section>
@@ -190,9 +206,10 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
-          <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4 artwork-container cursor-pointer" data-src={base + "images/img_13_page_14.jpg"}>
+          <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950 relative">
             <img src={base + "images/img_13_page_14.jpg"} alt="Volume sculpture 1" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="font-mono text-xs flex justify-between items-center pt-2">
             <span class="text-white font-bold">Relief & Empreinte Urbaine</span>
@@ -200,9 +217,10 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
-          <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4 artwork-container cursor-pointer" data-src={base + "images/img_14_page_15.jpg"}>
+          <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950 relative">
             <img src={base + "images/img_14_page_15.jpg"} alt="Volume sculpture 2" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="font-mono text-xs flex justify-between items-center pt-2">
             <span class="text-white font-bold">Assemblage Plastique</span>
@@ -225,9 +243,10 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
-          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4 artwork-container cursor-pointer" data-src={base + "images/img_40_page_41.jpg"}>
+          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950 relative">
             <img src={base + "images/img_40_page_41.jpg"} alt="Art mural Paris" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="font-mono text-xs space-y-1">
             <span class="text-emerald-400 block">PARIS / ÎLE-DE-FRANCE</span>
@@ -235,9 +254,10 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
-          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4 artwork-container cursor-pointer" data-src={base + "images/img_42_page_43.jpg"}>
+          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950 relative">
             <img src={base + "images/img_42_page_43.jpg"} alt="Art mural Montreal" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="font-mono text-xs space-y-1">
             <span class="text-emerald-400 block">MONTRÉAL (CANADA)</span>
@@ -245,9 +265,10 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
-          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4 artwork-container cursor-pointer" data-src={base + "images/img_44_page_45.jpg"}>
+          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950 relative">
             <img src={base + "images/img_44_page_45.jpg"} alt="Art mural Marseille" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
           </div>
           <div class="font-mono text-xs space-y-1">
             <span class="text-emerald-400 block">MARSEILLE / LA CIOTAT</span>
@@ -320,6 +341,14 @@ const base = import.meta.env.BASE_URL;
 
   </main>
 
+  <!-- Interactive Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl hidden flex-col items-center justify-center p-6 transition-all duration-300">
+    <button id="lightbox-close" class="absolute top-6 right-6 p-3 bg-neutral-800/80 hover:bg-neutral-700 text-white rounded-full font-mono text-sm uppercase tracking-wider">
+      ✕ CLOSE
+    </button>
+    <img id="lightbox-img" src="" alt="Full view" class="max-h-[85vh] max-w-[90vw] object-contain rounded-xl border border-neutral-800 shadow-2xl" />
+  </div>
+
   <footer class="py-12 border-t border-neutral-900 text-center font-mono text-xs text-neutral-600">
     © 2025 THÉOPHILE DEREUX STUDIO // ONE-PAGER EDITION
   </footer>
@@ -361,6 +390,79 @@ const base = import.meta.env.BASE_URL;
         const el = art as HTMLElement;
         el.style.filter = `brightness(${0.6 + val / 100}) contrast(${0.8 + val / 90})`;
       });
+    });
+
+    // Interactive Hover Canvas Effect (Spotlight & Crosshair on Mouse Over)
+    document.querySelectorAll('.artwork-container').forEach((container) => {
+      const canvas = container.querySelector('.hover-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+
+      container.addEventListener('mousemove', (e) => {
+        const mouseEvent = e as MouseEvent;
+        rect = container.getBoundingClientRect();
+        const x = mouseEvent.clientX - rect.left;
+        const y = mouseEvent.clientY - rect.top;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw interactive radial spotlight
+        const gradient = ctx.createRadialGradient(x, y, 10, x, y, 120);
+        gradient.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
+        gradient.addColorStop(0.5, 'rgba(16, 185, 129, 0.1)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw crosshair indicator
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.6)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x - 15, y);
+        ctx.lineTo(x + 15, y);
+        ctx.moveTo(x, y - 15);
+        ctx.lineTo(x, y + 15);
+        ctx.stroke();
+      });
+
+      container.addEventListener('mouseleave', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+    });
+
+    // Lightbox Modal
+    const modal = document.getElementById('lightbox-modal');
+    const modalImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const closeBtn = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.artwork-container').forEach((card) => {
+      card.addEventListener('click', () => {
+        const src = card.getAttribute('data-src');
+        if (src && modal && modalImg) {
+          modalImg.src = src;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      modal?.classList.add('hidden');
+      modal?.classList.remove('flex');
+    });
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
     });
   </script>
 </Layout>
