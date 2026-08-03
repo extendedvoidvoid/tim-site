@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 ---
 
 <Layout title="THÉOPHILE DEREUX — Studio | One-Pager Portfolio">
@@ -411,6 +412,7 @@ const base = import.meta.env.BASE_URL;
         const y = mouseEvent.clientY - rect.top;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = 'screen';
 
         // Draw interactive radial spotlight
         const gradient = ctx.createRadialGradient(x, y, 10, x, y, 120);
