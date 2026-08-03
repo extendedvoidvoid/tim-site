@@ -79,8 +79,17 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
         </div>
 
         <div class="lg:col-span-5">
-          <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl group artwork-container cursor-pointer" data-src={base + "images/img_01_page_02.jpg"}>
-            <img src={base + "images/img_01_page_02.jpg"} alt="Théophile Dereux Studio" class="w-full h-[520px] object-cover filter-artwork transition-all duration-300 group-hover:scale-105" />
+          <!-- Hero Marquee Wrapper -->
+          <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl group artwork-container cursor-pointer transition-all duration-700" id="hero-img-box" data-src={base + "images/img_01_page_02.jpg"}>
+            
+            <!-- Marquee Ticker Header -->
+            <div id="hero-marquee" class="absolute top-0 left-0 right-0 z-30 bg-emerald-500/90 text-neutral-950 font-mono text-[10px] font-bold uppercase tracking-widest py-1 px-3 overflow-hidden whitespace-nowrap transition-all duration-500 opacity-100">
+              <div class="inline-block animate-marquee">
+                THÉOPHILE DEREUX // STUDIO WORK 2025 // MATIÈRE & PERCEPTION // STREETARTERA // 
+              </div>
+            </div>
+
+            <img id="hero-img" src={base + "images/img_01_page_02.jpg"} alt="Théophile Dereux Studio" class="w-full h-[520px] object-cover filter-artwork transition-all duration-700 transform scale-100" />
             <canvas class="hover-canvas absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></canvas>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-0"></div>
             <div class="absolute bottom-6 left-6 right-6 font-mono text-xs text-neutral-400 flex justify-between items-end z-20">
@@ -371,6 +380,50 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
   </footer>
 
   <script>
+    // Hero Image 3-Second Marquee Toggle & Scale (0 to 100) Loop
+    const heroImg = document.getElementById('hero-img');
+    const heroMarquee = document.getElementById('hero-marquee');
+    const heroBox = document.getElementById('hero-img-box');
+
+    let heroState = true;
+    setInterval(() => {
+      heroState = !heroState;
+
+      if (heroState) {
+        if (heroMarquee) {
+          heroMarquee.style.opacity = '1';
+          heroMarquee.style.transform = 'translateY(0)';
+        }
+        if (heroImg) {
+          heroImg.style.transform = 'scale(1)';
+          heroImg.style.opacity = '1';
+        }
+        if (heroBox) {
+          heroBox.style.borderColor = 'rgba(16, 185, 129, 0.8)';
+        }
+      } else {
+        if (heroMarquee) {
+          heroMarquee.style.opacity = '0';
+          heroMarquee.style.transform = 'translateY(-100%)';
+        }
+        if (heroImg) {
+          heroImg.style.transform = 'scale(0)';
+          heroImg.style.opacity = '0';
+        }
+        if (heroBox) {
+          heroBox.style.borderColor = 'rgba(38, 38, 38, 1)';
+        }
+
+        // Scale up from 0 to 100
+        setTimeout(() => {
+          if (heroImg) {
+            heroImg.style.transform = 'scale(1)';
+            heroImg.style.opacity = '1';
+          }
+        }, 500);
+      }
+    }, 3000);
+
     // Theme Switcher (Dark / Light)
     const themeBtn = document.getElementById('theme-toggle-btn');
     const themeIcon = document.getElementById('theme-icon');
