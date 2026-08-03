@@ -1,0 +1,366 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="THÉOPHILE DEREUX — Studio | One-Pager Portfolio">
+  <!-- Fixed Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/80 font-mono text-xs">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+        <a href="#" class="font-bold text-sm tracking-widest uppercase hover:text-emerald-400 transition-colors">
+          THÉOPHILE DEREUX // STUDIO
+        </a>
+      </div>
+      
+      <nav class="hidden lg:flex items-center gap-8 text-neutral-400 uppercase tracking-widest text-[11px]">
+        <a href="#biographie" class="hover:text-white transition-colors">01. Bio</a>
+        <a href="#peinture" class="hover:text-white transition-colors">02. Peinture Abs</a>
+        <a href="#photographie" class="hover:text-white transition-colors">03. Photographie</a>
+        <a href="#objets" class="hover:text-white transition-colors">04. Objets</a>
+        <a href="#murales" class="hover:text-white transition-colors">05. Murales</a>
+        <a href="#boutique" class="hover:text-white transition-colors text-emerald-400">06. Boutique</a>
+        <a href="#contact" class="hover:text-white transition-colors">07. Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://drive.google.com/file/d/1T6AMb2xcGe5ZqwzNdloZfOVOc9EcU8El/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border border-emerald-500/60 text-emerald-400 hover:bg-emerald-500/10 rounded tracking-widest text-[11px] font-mono transition-all">
+          BOOK PDF 2025
+        </a>
+
+        <!-- Dark / Light Mode Toggle Button -->
+        <button id="theme-toggle-btn" aria-label="Toggle Theme" class="p-2 border border-neutral-700 hover:border-neutral-500 rounded-lg bg-neutral-900 text-neutral-300 hover:text-white transition-all flex items-center gap-1 font-mono text-[11px]">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text" class="hidden sm:inline uppercase">DARK</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 space-y-32 md:space-y-48">
+    
+    <!-- 01. BIOGRAPHIE & HERO -->
+    <section id="biographie" class="min-h-[85vh] flex flex-col justify-center max-w-7xl mx-auto px-8 py-16 scroll-mt-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-neutral-900 border border-neutral-800 font-mono text-xs text-neutral-400 rounded-full">
+            <span class="text-emerald-400">●</span> ARTISTE PLASTICIEN & PHOTOGRAPHE
+          </div>
+
+          <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight font-display text-white leading-none">
+            THÉOPHILE <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-neutral-300 to-neutral-600">DEREUX</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-neutral-300 max-w-2xl font-light leading-relaxed">
+            Photographe et plasticien, Théophile Dereux explore les passerelles entre matière, trace et perception. 
+            Ayant sillonné le monde pour collecter des textures naturelles et urbaines, il nourrit sa recherche d'un dialogue permanent entre observation et abstraction.
+          </p>
+
+          <p class="text-sm text-neutral-400 font-light max-w-xl">
+            Fondateur de l'association de médiation culturelle <strong class="text-white font-medium">Streetartera</strong> (2020), il y développe un studio de création ambulant au service de projets artistiques et communautaires.
+          </p>
+
+          <!-- Interactive Lighting Dial -->
+          <div class="p-6 bg-neutral-900/90 border border-neutral-800 rounded-2xl space-y-4 max-w-xl font-mono text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-400 uppercase tracking-widest">🎛 Cadran de Lumière</span>
+              <span id="light-val" class="text-emerald-400">Exposition: Neutral (100%)</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <span class="text-[10px] text-neutral-500">AUBE</span>
+              <input id="light-slider" type="range" min="0" max="100" value="50" class="w-full accent-emerald-500 cursor-pointer h-1.5 bg-neutral-800 rounded-lg appearance-none" />
+              <span class="text-[10px] text-neutral-500">UV / NUIT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl group">
+            <img src="/images/img_01_page_02.jpg" alt="Théophile Dereux Studio" class="w-full h-[520px] object-cover filter-artwork transition-all duration-300 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 font-mono text-xs text-neutral-400 flex justify-between items-end">
+              <div>
+                <span class="text-white font-bold block text-sm">Portrait & Studio</span>
+                <span>Streetartera (2020 - 2025)</span>
+              </div>
+              <span class="text-emerald-400">REF_01</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 02. PEINTURE ABSTRAITE -->
+    <section id="peinture" class="max-w-7xl mx-auto px-8 py-20 border-t border-neutral-900 scroll-mt-28 space-y-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-mono">
+        <div class="space-y-3 max-w-2xl">
+          <span class="text-xs text-emerald-400 uppercase tracking-widest">// 02. PEINTURE ABSTRAITE</span>
+          <h2 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tight text-white">Séries Abstraites</h2>
+          <p class="text-neutral-400 font-sans text-base font-light leading-relaxed">
+            Les séries « Médiumnité & Exploration » et « ABSPRAY » témoignent d'une recherche sur la matière et la gestualité. 
+            De la surface analogique à la suggestion numérique, la peinture de Théophile Dereux relie texture et mouvement.
+          </p>
+        </div>
+        <div class="text-xs text-neutral-500 uppercase tracking-wider border-l-2 border-emerald-500/80 pl-4">
+          Spray, résine & pigments<br/>Surfaces grand format
+        </div>
+      </div>
+
+      <!-- Real Artwork Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
+          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
+            <img src="/images/img_04_page_05.jpg" alt="Peinture Abstraite ABSPRAY" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="flex justify-between items-center font-mono text-xs pt-1">
+            <span class="text-white font-bold text-sm">Série ABSPRAY</span>
+            <span class="text-emerald-400">2024</span>
+          </div>
+        </div>
+
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
+          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
+            <img src="/images/img_06_page_07.jpg" alt="Peinture Médiumnité" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="flex justify-between items-center font-mono text-xs pt-1">
+            <span class="text-white font-bold text-sm">Série Médiumnité</span>
+            <span class="text-emerald-400">2024</span>
+          </div>
+        </div>
+
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
+          <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
+            <img src="/images/img_08_page_09.jpg" alt="Peinture Exploration" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="flex justify-between items-center font-mono text-xs pt-1">
+            <span class="text-white font-bold text-sm">Série Exploration</span>
+            <span class="text-emerald-400">2025</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 03. PHOTOGRAPHIE -->
+    <section id="photographie" class="max-w-7xl mx-auto px-8 py-20 border-t border-neutral-900 scroll-mt-28 space-y-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 font-mono">
+        <div class="space-y-3 max-w-2xl">
+          <span class="text-xs text-emerald-400 uppercase tracking-widest">// 03. ARCHIVE PHOTOGRAPHIQUE</span>
+          <h2 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tight text-white">Textures Décontextualisées</h2>
+          <p class="text-neutral-400 font-sans text-base font-light leading-relaxed">
+            Depuis 2014, cette série regroupe plus de deux mille photographies explorant la texture naturelle et urbaine. 
+            Chaque image devient une abstraction, un fragment de matière où la lumière compose le tableau.
+          </p>
+        </div>
+        <div class="text-xs text-emerald-400 font-bold bg-emerald-950/40 border border-emerald-500/30 px-4 py-2 rounded-lg">
+          2000+ CLICHÉS ARCHIVÉS
+        </div>
+      </div>
+
+      <!-- Real Photo Gallery -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
+          <img src="/images/img_17_page_17.jpg" alt="Texture décontextualisée 1" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
+          <img src="/images/img_20_page_20.jpg" alt="Texture décontextualisée 2" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
+          <img src="/images/img_25_page_25.jpg" alt="Texture décontextualisée 3" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
+          <img src="/images/img_30_page_30.jpg" alt="Texture décontextualisée 4" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 04. OBETS & RELIEFS -->
+    <section id="objets" class="max-w-7xl mx-auto px-8 py-20 border-t border-neutral-900 scroll-mt-28 space-y-16">
+      <div class="space-y-3 max-w-2xl font-mono">
+        <span class="text-xs text-emerald-400 uppercase tracking-widest">// 04. VOLUMES & SCULPTURES</span>
+        <h2 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tight text-white">Objets & Reliefs</h2>
+        <p class="text-neutral-400 font-sans text-base font-light leading-relaxed">
+          Exploration tridimensionnelle de la matière brutes, moulages urbains et assemblages plastiques.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
+          <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950">
+            <img src="/images/img_13_page_14.jpg" alt="Volume sculpture 1" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="font-mono text-xs flex justify-between items-center pt-2">
+            <span class="text-white font-bold">Relief & Empreinte Urbaine</span>
+            <span class="text-neutral-500">Résine & Béton</span>
+          </div>
+        </div>
+
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
+          <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950">
+            <img src="/images/img_14_page_15.jpg" alt="Volume sculpture 2" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="font-mono text-xs flex justify-between items-center pt-2">
+            <span class="text-white font-bold">Assemblage Plastique</span>
+            <span class="text-neutral-500">Pigments Synthétiques</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 05. ART MURAL & COMMANDES -->
+    <section id="murales" class="max-w-7xl mx-auto px-8 py-20 border-t border-neutral-900 scroll-mt-28 space-y-16">
+      <div class="space-y-3 max-w-3xl font-mono">
+        <span class="text-xs text-emerald-400 uppercase tracking-widest">// 05. FRESQUES & COMMANDES</span>
+        <h2 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tight text-white">Art Mural & In Situ</h2>
+        <p class="text-neutral-400 font-sans text-base font-light leading-relaxed">
+          Formé auprès d'artistes comme Sino, Markos 93, Serak ou Dodo Ose, Théophile Dereux s'est ancré dans la scène graffiti. 
+          Réalisations murales entre Paris, Montréal, La Ciotat et Marseille.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
+          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
+            <img src="/images/img_40_page_41.jpg" alt="Art mural Paris" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="font-mono text-xs space-y-1">
+            <span class="text-emerald-400 block">PARIS / ÎLE-DE-FRANCE</span>
+            <span class="text-white font-bold block text-sm">Fresques & Graffiti</span>
+          </div>
+        </div>
+
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
+          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
+            <img src="/images/img_42_page_43.jpg" alt="Art mural Montreal" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="font-mono text-xs space-y-1">
+            <span class="text-emerald-400 block">MONTRÉAL (CANADA)</span>
+            <span class="text-white font-bold block text-sm">Collaborations Murale</span>
+          </div>
+        </div>
+
+        <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
+          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
+            <img src="/images/img_44_page_45.jpg" alt="Art mural Marseille" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="font-mono text-xs space-y-1">
+            <span class="text-emerald-400 block">MARSEILLE / LA CIOTAT</span>
+            <span class="text-white font-bold block text-sm">Médiation Streetartera</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 06. BOUTIQUE -->
+    <section id="boutique" class="max-w-7xl mx-auto px-8 py-20 border-t border-neutral-900 scroll-mt-28">
+      <div class="p-10 bg-gradient-to-r from-emerald-950/30 via-neutral-900 to-neutral-950 border border-emerald-500/30 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-xl font-mono">
+          <span class="text-xs text-emerald-400 uppercase tracking-widest">// 06. STORE & ACQUISITION</span>
+          <h3 class="text-3xl font-bold text-white font-display uppercase">Boutique & Éditions Limitées</h3>
+          <p class="text-xs text-neutral-400 font-sans leading-relaxed">
+            Prints numérotés, tirages photographiques sur papier d'art et pièces originales disponibles sur demande.
+          </p>
+        </div>
+        <a href="mailto:theodereux@gmail.com?subject=Acquisition%20/%20Boutique" class="whitespace-nowrap px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold font-mono text-xs uppercase tracking-widest rounded-full transition-all shadow-lg shadow-emerald-500/20">
+          Demande d'Acquisition
+        </a>
+      </div>
+    </section>
+
+
+    <!-- 07. CONTACT -->
+    <section id="contact" class="max-w-7xl mx-auto px-8 py-20 border-t border-neutral-900 scroll-mt-28 space-y-12">
+      <div class="space-y-4 max-w-2xl font-mono">
+        <span class="text-xs text-emerald-400 uppercase tracking-widest">// 07. CONTACT</span>
+        <h2 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tight text-white">Théophile Dereux</h2>
+        <p class="text-neutral-400 font-sans text-base font-light">
+          Pour toute demande d'exposition, acquisition, commande murale ou médiation culturelle.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono">
+        <a href="mailto:theodereux@gmail.com" class="p-6 bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl transition-all space-y-2 block">
+          <span class="text-[10px] text-neutral-500 uppercase">EMAIL</span>
+          <div class="text-sm font-bold text-white truncate">theodereux@gmail.com</div>
+        </a>
+
+        <a href="tel:+33749240924" class="p-6 bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl transition-all space-y-2 block">
+          <span class="text-[10px] text-neutral-500 uppercase">TÉLÉPHONE</span>
+          <div class="text-sm font-bold text-white">+33 7 49 24 09 24</div>
+        </a>
+
+        <a href="https://instagram.com/streetpsychologist" target="_blank" class="p-6 bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl transition-all space-y-2 block">
+          <span class="text-[10px] text-neutral-500 uppercase">INSTAGRAM ARTISTE</span>
+          <div class="text-sm font-bold text-white">@streetpsychologist</div>
+        </a>
+
+        <a href="https://instagram.com/streetartera" target="_blank" class="p-6 bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl transition-all space-y-2 block">
+          <span class="text-[10px] text-neutral-500 uppercase">ASSOCIATION</span>
+          <div class="text-sm font-bold text-white">@streetartera</div>
+        </a>
+      </div>
+
+      <div class="p-8 bg-neutral-900 border border-neutral-800 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1">
+          <h3 class="text-xl font-bold font-display text-white">Book Complete PDF (2025)</h3>
+          <p class="text-xs text-neutral-400">Document 50 pages HD avec l'ensemble des œuvres et séries.</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1T6AMb2xcGe5ZqwzNdloZfOVOc9EcU8El/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 bg-white hover:bg-neutral-200 text-neutral-950 font-mono font-bold text-xs uppercase tracking-widest rounded-full transition-all">
+          Télécharger PDF
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-12 border-t border-neutral-900 text-center font-mono text-xs text-neutral-600">
+    © 2025 THÉOPHILE DEREUX STUDIO // ONE-PAGER EDITION
+  </footer>
+
+  <script>
+    // Theme Switcher (Dark / Light)
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    function updateThemeUI(isDark: boolean) {
+      if (themeIcon) themeIcon.textContent = isDark ? '🌙' : '☀️';
+      if (themeText) themeText.textContent = isDark ? 'DARK' : 'LIGHT';
+    }
+
+    // Set initial UI
+    const isDarkInitial = document.documentElement.classList.contains('dark');
+    updateThemeUI(isDarkInitial);
+
+    themeBtn?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeUI(isDark);
+    });
+
+    // Lighting dial slider script
+    const slider = document.getElementById('light-slider') as HTMLInputElement;
+    const label = document.getElementById('light-val');
+    const artworks = document.querySelectorAll('.filter-artwork');
+
+    slider?.addEventListener('input', (e) => {
+      const val = parseInt((e.target as HTMLInputElement).value);
+      if (label) {
+        if (val < 30) label.textContent = 'Exposition: Aube / Cold (30%)';
+        else if (val < 70) label.textContent = 'Exposition: Neutral (100%)';
+        else label.textContent = 'Exposition: Night / UV (180%)';
+      }
+
+      artworks.forEach((art) => {
+        const el = art as HTMLElement;
+        el.style.filter = `brightness(${0.6 + val / 100}) contrast(${0.8 + val / 90})`;
+      });
+    });
+  </script>
+</Layout>
