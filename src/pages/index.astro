@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="THÉOPHILE DEREUX — Studio | One-Pager Portfolio">
@@ -78,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="lg:col-span-5">
           <div class="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl group">
-            <img src="/images/img_01_page_02.jpg" alt="Théophile Dereux Studio" class="w-full h-[520px] object-cover filter-artwork transition-all duration-300 group-hover:scale-105" />
+            <img src={base + "images/img_01_page_02.jpg"} alt="Théophile Dereux Studio" class="w-full h-[520px] object-cover filter-artwork transition-all duration-300 group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-6 left-6 right-6 font-mono text-xs text-neutral-400 flex justify-between items-end">
               <div>
@@ -113,7 +114,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
           <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
-            <img src="/images/img_04_page_05.jpg" alt="Peinture Abstraite ABSPRAY" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+            <img src={base + "images/img_04_page_05.jpg"} alt="Peinture Abstraite ABSPRAY" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div class="flex justify-between items-center font-mono text-xs pt-1">
             <span class="text-white font-bold text-sm">Série ABSPRAY</span>
@@ -123,7 +124,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
           <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
-            <img src="/images/img_06_page_07.jpg" alt="Peinture Médiumnité" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+            <img src={base + "images/img_06_page_07.jpg"} alt="Peinture Médiumnité" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div class="flex justify-between items-center font-mono text-xs pt-1">
             <span class="text-white font-bold text-sm">Série Médiumnité</span>
@@ -133,7 +134,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4 space-y-4 hover:border-neutral-700 transition-all">
           <div class="overflow-hidden rounded-xl bg-neutral-950 aspect-[4/3]">
-            <img src="/images/img_08_page_09.jpg" alt="Peinture Exploration" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
+            <img src={base + "images/img_08_page_09.jpg"} alt="Peinture Exploration" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div class="flex justify-between items-center font-mono text-xs pt-1">
             <span class="text-white font-bold text-sm">Série Exploration</span>
@@ -163,16 +164,16 @@ import Layout from '../layouts/Layout.astro';
       <!-- Real Photo Gallery -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src="/images/img_17_page_17.jpg" alt="Texture décontextualisée 1" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          <img src={base + "images/img_17_page_17.jpg"} alt="Texture décontextualisée 1" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
         </div>
         <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src="/images/img_20_page_20.jpg" alt="Texture décontextualisée 2" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          <img src={base + "images/img_20_page_20.jpg"} alt="Texture décontextualisée 2" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
         </div>
         <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src="/images/img_25_page_25.jpg" alt="Texture décontextualisée 3" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          <img src={base + "images/img_25_page_25.jpg"} alt="Texture décontextualisée 3" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
         </div>
         <div class="group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden aspect-square p-2">
-          <img src="/images/img_30_page_30.jpg" alt="Texture décontextualisée 4" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
+          <img src={base + "images/img_30_page_30.jpg"} alt="Texture décontextualisée 4" class="w-full h-full object-cover rounded-lg filter-artwork group-hover:scale-105 transition-transform duration-300" />
         </div>
       </div>
     </section>
@@ -191,7 +192,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
           <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950">
-            <img src="/images/img_13_page_14.jpg" alt="Volume sculpture 1" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <img src={base + "images/img_13_page_14.jpg"} alt="Volume sculpture 1" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
           </div>
           <div class="font-mono text-xs flex justify-between items-center pt-2">
             <span class="text-white font-bold">Relief & Empreinte Urbaine</span>
@@ -201,7 +202,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
           <div class="aspect-[16/9] overflow-hidden rounded-xl bg-neutral-950">
-            <img src="/images/img_14_page_15.jpg" alt="Volume sculpture 2" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <img src={base + "images/img_14_page_15.jpg"} alt="Volume sculpture 2" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
           </div>
           <div class="font-mono text-xs flex justify-between items-center pt-2">
             <span class="text-white font-bold">Assemblage Plastique</span>
@@ -226,7 +227,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
           <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
-            <img src="/images/img_40_page_41.jpg" alt="Art mural Paris" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <img src={base + "images/img_40_page_41.jpg"} alt="Art mural Paris" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
           </div>
           <div class="font-mono text-xs space-y-1">
             <span class="text-emerald-400 block">PARIS / ÎLE-DE-FRANCE</span>
@@ -236,7 +237,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
           <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
-            <img src="/images/img_42_page_43.jpg" alt="Art mural Montreal" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <img src={base + "images/img_42_page_43.jpg"} alt="Art mural Montreal" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
           </div>
           <div class="font-mono text-xs space-y-1">
             <span class="text-emerald-400 block">MONTRÉAL (CANADA)</span>
@@ -246,7 +247,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-4">
           <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-950">
-            <img src="/images/img_44_page_45.jpg" alt="Art mural Marseille" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
+            <img src={base + "images/img_44_page_45.jpg"} alt="Art mural Marseille" class="w-full h-full object-cover filter-artwork group-hover:scale-105 transition-transform duration-300" />
           </div>
           <div class="font-mono text-xs space-y-1">
             <span class="text-emerald-400 block">MARSEILLE / LA CIOTAT</span>
@@ -334,7 +335,6 @@ import Layout from '../layouts/Layout.astro';
       if (themeText) themeText.textContent = isDark ? 'DARK' : 'LIGHT';
     }
 
-    // Set initial UI
     const isDarkInitial = document.documentElement.classList.contains('dark');
     updateThemeUI(isDarkInitial);
 
